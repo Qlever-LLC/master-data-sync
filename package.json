@@ -51,7 +51,7 @@
   "dependencies": {
     "@oada/client": "^4.0.1",
     "@oada/types": "^2.0.1",
-    "convict": "^6.2.2",
+    "convict": "^6.2.4",
     "debug": "^4.3.4",
     "dotenv": "^16.0.0",
     "tslib": "^2.4.0"
