@@ -38,6 +38,158 @@ export const config = convict({
   /**
    * Add more config stuff when needed
    */
+  service: {
+    "name": {
+      doc: 'service name',
+      format: String,
+      default: 'master-data-sync',
+      env: 'SERVICE_NAME',
+      arg: 'SERVICE_NAME',
+    },
+    "path": {
+      doc: 'service path',
+      format: String,
+      default: '/bookmarks/services/master-data-sync/',
+      env: 'SERVICE_PATH',
+      arg: 'SERVICE_PATH',
+    },
+    "startup-mode": {
+      doc: 'startup mode',
+      format: String,
+      default: 'init',
+      env: 'STARTUP',
+      arg: 'startup',
+    }
+  },
+  trellis: {
+    // "domain": {
+    //   doc: 'OADA API domain',
+    //   format: String,
+    //   default: 'dev.smithfield.trellis.one',
+    //   env: 'DOMAIN',
+    //   arg: 'domain',
+    // },
+    // token: {
+    //   doc: 'OADA API token',
+    //   format: String,
+    //   default: 'god-proxy',
+    //   env: 'TOKEN',
+    //   arg: 'token',
+    // },
+    endpoints: {
+      tps: {
+        doc: 'trading partner endpoint in trellis',
+        default: "/bookmarks/trellisfw/trading-partners",
+      },
+      utps: {
+        default: "/bookmarks/trellisfw/trading-partners/unidentified-trading-partners-index",
+        doc: 'unidentified trading partner endpoint in trellis',
+      },
+      'fl-bus': {
+        default: "/bookmarks/services/fl-sync/businesses",
+        doc: 'business mirror endpoint in trellis',
+      },
+      "tpmidi": {
+        doc: 'masterid-index endpoint in trading partners in trellis',
+        default: "/bookmarks/trellisfw/trading-partners/masterid-index"
+      },
+      "service-tp": {
+        doc: 'service trading partners endpoint',
+        default: "/bookmarks/trellisfw/trading-partners"
+      },
+      "service-pr": {
+        doc: 'service products endpoint',
+        default: "/bookmarks/services/sap-sync/other/products"
+      },
+      "service-lo": {
+        doc: 'service locations endpoint',
+        default: "/bookmarks/services/sap-sync/other/locations"
+      },
+      "service-datasources-tp": {
+        doc: 'service datasource trading partners endpoint',
+        default: "/bookmarks/services/master-data-sync/datasources/vendors"
+      },
+      "service-datasources-pr": {
+        doc: 'service datasource products endpoint',
+        default: "/bookmarks/services/master-data-sync/datasources/products"
+      },
+      "service-datasources-lo": {
+        doc: 'service datasource locations endpoint',
+        default: "/bookmarks/services/master-data-sync/datasources/locations"
+      },
+
+    },
+    requiredendpoints: {
+      doc: 'required endpoints',
+      format: Array,
+      default: [
+        "/bookmarks/services/sap-sync/mirror",
+        "/bookmarks/services/sap-sync/mapping-tables/suppliers",
+        "/bookmarks/services/sap-sync/indexes",
+        "/bookmarks/services/sap-sync/other",
+        "/bookmarks/services/sap-sync/other/trading-partners/expand-index",
+        "/bookmarks/services/sap-sync/other/trading-partners/masterid-index",
+        "/bookmarks/services/sap-sync/other/trading-partners/local-masterid-index",
+        "/bookmarks/services/sap-sync/other/products",
+        "/bookmarks/services/sap-sync/other/products/expand-index",
+        "/bookmarks/services/sap-sync/other/products/masterid-index",
+        "/bookmarks/services/sap-sync/other/locations",
+        "/bookmarks/services/sap-sync/other/customers",
+        "/bookmarks/services/sap-sync/matching-issues/day-index",
+        "/bookmarks/trellisfw/trading-partners/expand-index",
+        "/bookmarks/trellisfw/trading-partners/masterid-index",
+        "/bookmarks/trellisfw/trading-partners/masterid-index-delete",
+        "/bookmarks/services/fl-sync/businesses",
+        "/bookmarks/services/sap-sync/datasources/vendors",
+        "/bookmarks/services/sap-sync/datasources/products",
+        "/bookmarks/services/sap-sync/datasources/locations",
+        "/bookmarks/services/sap-sync/datasources/customers",
+        "/bookmarks/services/master-data-sync/data-sources/vendors",
+        "/bookmarks/services/master-data-sync/data-sources/products",
+        "/bookmarks/services/master-data-sync/data-sources/locations",
+        "/bookmarks/services/master-data-sync/data-sources/customers"
+      ]
+    },
+    concurrency: {
+      doc: 'OADA client concurrency',
+      format: Number,
+      default: 1,
+      env: 'CONCURRENCY',
+      arg: 'concurrency'
+    }
+  },
+  timeouts: {
+    vendor: {
+      doc: 'Timeout duration for vendor jobs',
+      format: Number,
+      default: (3600000 as unknown) as number,
+      env: 'VENDOR_TIMEOUT',
+      arg: 'vendor-timeout',
+    },
+    product: {
+      doc: 'Timeout duration for product jobs',
+      format: Number,
+      default: (3600000 as unknown) as number,
+      env: 'PRODUCT_TIMEOUT',
+      arg: 'product-timeout',
+    },
+    location: {
+      doc: 'Timeout duration for product jobs',
+      format: Number,
+      default: (3600000 as unknown) as number,
+      env: 'LOCATION_TIMEOUT',
+      arg: 'location-timeout',
+    }
+  },
+  slack: {
+    posturl: {
+      format: String,
+      // use a real slack webhook URL
+      default: 'https://localhost',
+      env: 'SLACK_WEBHOOK',
+      arg: 'slack-webhook',
+    },
+  }
 });
 
 /**

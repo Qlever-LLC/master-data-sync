@@ -1,5 +1,5 @@
 {
-  "name": "@qlever-llc/oada-service-template",
+  "name": "@qlever-llc/master-data-sync",
   "version": "1.0.0",
   "description": "An oada microservice",
   "main": "dist/index.js",
@@ -49,22 +49,30 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@oada/client": "^4.0.1",
+    "@oada/client": "^4.0.2",
+    "@oada/jobs": "^3.0.2",
+    "@oada/list-lib": "^3.0.6",
     "@oada/types": "^2.0.1",
+    "bluebird": "^3.7.2",
     "convict": "^6.2.2",
+    "csv-parse": "^5.3.1",
     "debug": "^4.3.4",
     "dotenv": "^16.0.0",
-    "tslib": "^2.4.0"
+    "fs": "^0.0.1-security",
+    "lunr": "^2.3.9"
   },
   "devDependencies": {
     "@ava/typescript": "^3.0.1",
     "@tsconfig/node18": "^1.0.0",
+    "@types/bluebird": "^3",
     "@types/convict": "^6.1.1",
-    "@types/debug": "^4.1.7",
+    "@types/debug": "^4",
+    "@types/lunr": "^2",
     "@types/node": "^16.11.33",
     "@typescript-eslint/eslint-plugin": "^5.22.0",
     "@typescript-eslint/parser": "^5.22.0",
     "@yarnpkg/sdks": "^3.0.0-rc.4",
+    "assert": "^2.0.0",
     "ava": "4.0.0-rc.1",
     "c8": "^7.11.2",
     "eslint": "^8.14.0",
@@ -93,6 +101,7 @@
     "eslint-plugin-sonarjs": "^0.13.0",
     "eslint-plugin-unicorn": "^42.0.0",
     "prettier": "^2.6.2",
+    "tslib": "^2.4.0",
     "typescript": "^4.6.4"
   },
   "packageManager": "yarn@3.2.0",
