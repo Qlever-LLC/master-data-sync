@@ -236,7 +236,7 @@ __metadata:
     "@yarnpkg/sdks": ^3.0.0-rc.4
     ava: 4.0.0-rc.1
     c8: ^7.11.2
-    convict: ^6.2.2
+    convict: ^6.2.4
     debug: ^4.3.4
     dotenv: ^16.0.0
     eslint: ^8.14.0
@@ -1557,13 +1557,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"convict@npm:^6.2.2":
-  version: 6.2.2
-  resolution: "convict@npm:6.2.2"
+"convict@npm:^6.2.4":
+  version: 6.2.4
+  resolution: "convict@npm:6.2.4"
   dependencies:
     lodash.clonedeep: ^4.5.0
     yargs-parser: ^20.2.7
-  checksum: 8f965caa1e90f4ecd35ecf8861d8acb78c6a4a63ef81e79da633e757fde6f2ce0167b72c4864dd4c8e718881f72c1461bdfe1687b3fb9299590b0f10e3e62bc4
+  checksum: e14da5c359e3b0452d39c005429e5e4ab1192fa94e51824e135ca8e6b921e95dfd803c15993ea6d23837b6cecb5a402e981a5dd37bee52a62a7a0924798eefe0
   languageName: node
   linkType: hard
 
