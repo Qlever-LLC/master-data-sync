@@ -49,6 +49,15 @@ export type Tree = {
   _rev?: number;
 };
 
+const dayIndex = {
+  _type: 'application/vnd.oada.bookmarks.1+json',
+  _rev: 0,
+  '*': {
+    '_type': 'application/vnd.oada.trellisfw.master-data-vendors.1+json',
+    '_rev': 0
+  }
+};
+
 const tree: Tree = {
   bookmarks: {
     _type: 'application/vnd.oada.bookmarks.1+json',
@@ -103,11 +112,12 @@ const tree: Tree = {
           "vendors": {
             "_type": "application/vnd.oada.trellisfw.master-data-vendors.1+json",
             "_rev": 0,
-            "*": {
-              "_type": "application/vnd.oada.trellisfw.master-data-vendors.1+json",
+            "day-index": dayIndex,
+            "logs": {
+              "_type": "application/vnd.oada.trellisfw.master-data-logs.1+json",
               "_rev": 0,
               "*": {
-                "_type": "application/vnd.oada.trellisfw.master-data-vendors.1+json",
+                "_type": "application/vnd.oada.trellisfw.master-data-logs.1+json",
                 "_rev": 0
               }
             }
@@ -148,6 +158,46 @@ const tree: Tree = {
               }
             }
           },
+          "pohis": {
+            "_type": "application/vnd.oada.trellisfw.master-data-pohis.1+json",
+            "_rev": 0,
+            "*": {
+              "_type": "application/vnd.oada.trellisfw.master-data-pohis.1+json",
+              "_rev": 0,
+              "*": {
+                "_type": "application/vnd.oada.trellisfw.master-data-pohis.1+json",
+                "_rev": 0
+              }
+            }
+          },
+          "sohis": {
+            "_type": "application/vnd.oada.trellisfw.master-data-sohis.1+json",
+            "_rev": 0,
+            "*": {
+              "_type": "application/vnd.oada.trellisfw.master-data-sohis.1+json",
+              "_rev": 0,
+              "*": {
+                "_type": "application/vnd.oada.trellisfw.master-data-sohis.1+json",
+                "_rev": 0
+              }
+            }
+          },
+        },
+        "mirror": {
+          "_type": "application/vnd.oada.trellisfw.1+json",
+          "_rev": 0,
+          "vendors": {
+            "_type": "application/vnd.oada.trellisfw.master-data-vendors.1+json",
+            "_rev": 0,
+            "expand-index": {
+              "_type": "application/vnd.oada.trellisfw.master-data-index.1+json",
+              "_rev": 0
+            },
+            "*": {
+              "_type": "application/vnd.oada.trellisfw.master-data-vendors.1+json",
+              "_rev": 0
+            }
+          }
         }
       }
     },

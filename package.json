@@ -1,7 +1,7 @@
 {
   "name": "@qlever-llc/master-data-sync",
-  "version": "0.1.0",
-  "description": "An oada microservice",
+  "version": "0.1.1",
+  "description": "master-data-sync microservice",
   "main": "dist/index.js",
   "type": "module",
   "engines": {
@@ -59,7 +59,8 @@
     "debug": "^4.3.4",
     "dotenv": "^16.0.0",
     "fs": "^0.0.1-security",
-    "lunr": "^2.3.9"
+    "lunr": "^2.3.9",
+    "moment": "^2.29.4"
   },
   "devDependencies": {
     "@ava/typescript": "^3.0.1",

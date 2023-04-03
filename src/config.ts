@@ -56,7 +56,7 @@ export const config = convict({
     "startup-mode": {
       doc: 'startup mode',
       format: String,
-      default: 'init',
+      default: 'importer',
       env: 'STARTUP',
       arg: 'startup',
     }
@@ -99,11 +99,11 @@ export const config = convict({
       },
       "service-pr": {
         doc: 'service products endpoint',
-        default: "/bookmarks/services/sap-sync/other/products"
+        default: "/bookmarks/services/master-data-sync/other/products"
       },
       "service-lo": {
         doc: 'service locations endpoint',
-        default: "/bookmarks/services/sap-sync/other/locations"
+        default: "/bookmarks/services/master-data-sync/other/locations"
       },
       "service-datasources-tp": {
         doc: 'service datasource trading partners endpoint',
@@ -117,38 +117,48 @@ export const config = convict({
         doc: 'service datasource locations endpoint',
         default: "/bookmarks/services/master-data-sync/datasources/locations"
       },
-
+      "master-data-mirror": {
+        doc: "master data mirror",
+        default: "/bookmarks/services/master-data-sync/mirror"
+      },
+      "master-data-sources": {
+        doc: "",
+        default: "/bookmarks/services/master-data-sync/data-sources"
+      }
     },
     requiredendpoints: {
       doc: 'required endpoints',
       format: Array,
       default: [
-        "/bookmarks/services/sap-sync/mirror",
-        "/bookmarks/services/sap-sync/mapping-tables/suppliers",
-        "/bookmarks/services/sap-sync/indexes",
-        "/bookmarks/services/sap-sync/other",
-        "/bookmarks/services/sap-sync/other/trading-partners/expand-index",
-        "/bookmarks/services/sap-sync/other/trading-partners/masterid-index",
-        "/bookmarks/services/sap-sync/other/trading-partners/local-masterid-index",
-        "/bookmarks/services/sap-sync/other/products",
-        "/bookmarks/services/sap-sync/other/products/expand-index",
-        "/bookmarks/services/sap-sync/other/products/masterid-index",
-        "/bookmarks/services/sap-sync/other/locations",
-        "/bookmarks/services/sap-sync/other/customers",
-        "/bookmarks/services/sap-sync/matching-issues/day-index",
-        "/bookmarks/trellisfw/trading-partners/expand-index",
-        "/bookmarks/trellisfw/trading-partners/masterid-index",
-        "/bookmarks/trellisfw/trading-partners/masterid-index-delete",
-        "/bookmarks/services/fl-sync/businesses",
-        "/bookmarks/services/sap-sync/datasources/vendors",
-        "/bookmarks/services/sap-sync/datasources/products",
-        "/bookmarks/services/sap-sync/datasources/locations",
-        "/bookmarks/services/sap-sync/datasources/customers",
+        "/bookmarks/services/master-data-sync/mirror/vendors",
+        "/bookmarks/services/master-data-sync/mirror/customers",
+        "/bookmarks/services/master-data-sync/mirror/sohis",
+        "/bookmarks/services/master-data-sync/mirror/pohis",
         "/bookmarks/services/master-data-sync/data-sources/vendors",
         "/bookmarks/services/master-data-sync/data-sources/products",
         "/bookmarks/services/master-data-sync/data-sources/locations",
-        "/bookmarks/services/master-data-sync/data-sources/customers"
+        "/bookmarks/services/master-data-sync/data-sources/customers",
+        "/bookmarks/services/master-data-sync/data-sources/pohis",
+        "/bookmarks/services/master-data-sync/data-sources/sohis"
       ]
+    },
+    datasets: {
+      lfa: {
+        doc: 'master-data LFA input dataset',
+        default: "./data/ZMM_CDS_LFA1_FL.csv",
+      },
+      pohis: {
+        doc: 'master-data POHIS input dataset',
+        default: "./data/ZMM_CDS_POHIS_FL.csv",
+      },
+      kna: {
+        doc: 'master-data KNA input dataset',
+        default: "./data/ZSD_CDS_KNA1_LF.csv",
+      },
+      sohis: {
+        doc: 'master-data SOHIS input dataset',
+        default: "./data/ZSD_CDS_SOHIS_LF.csv",
+      }
     },
     concurrency: {
       doc: 'OADA client concurrency',
